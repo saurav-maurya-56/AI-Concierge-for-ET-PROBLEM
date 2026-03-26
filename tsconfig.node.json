@@ -1,0 +1,39 @@
+import { useState, useCallback } from "react";
+import ChatOnboarding from "@/components/ChatOnboarding";
+import ProcessingScreen from "@/components/ProcessingScreen";
+import Dashboard from "@/components/Dashboard";
+import { generateProfile, type UserProfile } from "@/lib/onboarding-data";
+
+type Phase = "chat" | "processing" | "dashboard";
+
+const Index = () => {
+  const [phase, setPhase] = useState<Phase>("chat");
+  const [profile, setProfile] = useState<UserProfile | null>(null);
+
+  const handleChatComplete = useCallback((answers: Record<string, string>) => {
+    const p = generateProfile(answers);
+    setProfile(p);
+    setPhase("processing");
+  }, []);
+
+  const handleProcessingComplete = useCallback(() => {
+    setPhase("dashboard");
+  }, []);
+
+  const handleRestart = useCallback(() => {
+    setProfile(null);
+    setPhase("chat");
+  }, []);
+
+  if (phase === "processing") {
+    return <ProcessingScreen onComplete={handleProcessingComplete} />;
+  }
+
+  if (phase === "dashboard" && profile) {
+    return <Dashboard profile={profile} onRestart={handleRestart} />;
+  }
+
+  return <ChatOnboarding onComplete={handleChatComplete} />;
+};
+
+export default Index;
