@@ -96,3 +96,7 @@ This project is for educational and hackathon purposes.
 👨‍💻 Author
 
 Built with ❤️ for hackathons and innovation.
+
+
+Screen shot:-
+<img width="1078" height="629" alt="Screenshot 2026-03-26 203840" src="https://github.com/user-attachments/assets/cf65f22e-4d3f-47af-8870-2de14250a9dd" />
