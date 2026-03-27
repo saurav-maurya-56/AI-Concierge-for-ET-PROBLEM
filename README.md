@@ -2,7 +2,7 @@
 
 Personalized Financial Intelligence Platform
 
-🧠 Overview
+🧠Overview
 
 ET AI Concierge is an AI-powered financial assistant that helps users make smarter financial decisions through a chat-based onboarding experience and a personalized dashboard with real-time recommendations.
 
